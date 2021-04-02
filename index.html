@@ -6,8 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
-  <body>
+  <body class="bg-dark text-white" style="margin: 0">
+
+    <div id="precontent">
+      <style>
+        * {
+          background: #343a40  !important;
+        }
+
+        #precontent>.navbar {
+          height: 60px;
+          background: #343a40 ;
+          box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important
+        }
+
+        #precontent>.shadow {
+          box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important
+        }
+      </style>
+
+      <div class="navbar shadow"></div>
+    </div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script defer>
+      document.getElementById('precontent').setAttribute('hidden', null)
+    </script>
   </body>
 </html>
