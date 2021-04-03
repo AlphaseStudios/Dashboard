@@ -1,59 +1,51 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "react-bootstrap";
+import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { NotFound } from "./views";
-import 'react-bootstrap';
+import AppRouter from "./AppRouter";
 
 export default function App() {
   return (
     <section>
-      <Navbar></Navbar>
+      <Navbar
+        items={[
+          {
+            title: "Home",
+            path: "/",
+            tooltip: "Home",
+          },
+          {
+            title: "Features",
+            path: "/#features",
+            tooltip: "What can it do?",
+          },
+          {
+            title: "Why",
+            path: "/#why",
+            tooltip: "Why use Alphabot dashboard?",
+          },
+          {
+            title: "Privacy",
+            path: "/privacy",
+            tooltip: "Privacy and Terms of Conditions",
+          },
+          {
+            title: "Developer",
+            path: "/developer",
+            tooltip: "Our API for you",
+          },
+          {
+            title: "Dashboard",
+            path: "/dashboard",
+            tooltip: "Your bot-dashboard",
+          },
+        ]}
+      ></Navbar>
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
+        <div className="mt-4">
+          <AppRouter />
         </div>
       </Router>
     </section>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }

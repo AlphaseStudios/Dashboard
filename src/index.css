@@ -13,5 +13,7 @@ code {
 }
 
 hr {
-  color: #fff !important;
+  margin-right: 20%;
+  max-width: 80%;
+  background: rgba(255, 255, 255, 0.3) !important;
 }
